@@ -1,4 +1,4 @@
-# Tool bar for Markdown-Writer Atom package
+# Tool bar for Markdown-Writer
 
 A tool-bar plugin that adds editing actions for [Markdown Writer](https://atom.io/packages/markdown-writer).
 
