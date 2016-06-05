@@ -1,6 +1,10 @@
-# Tool bar for Markdown-Writer
+# Toolbar for Markdown-Writer
 
-A tool-bar plugin that adds editing actions for [Markdown Writer](https://atom.io/packages/markdown-writer).
+A tool-bar plugin that adds Markdown editing buttons.
+
+Powered with [Markdown Writer](https://atom.io/packages/markdown-writer) and [Atom Tool Bar](https://atom.io/packages/tool-bar).
+
+![Toolbar for Markdown-Writer](http://i.imgur.com/GK5zB1L.png)
 
 ## Installation
 
@@ -15,3 +19,5 @@ Then install this package:
 ```
 apm install tool-bar-markdown-writer
 ```
+
+Happy editing!
