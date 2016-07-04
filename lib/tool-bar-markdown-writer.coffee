@@ -1,4 +1,28 @@
+{ CompositeDisposable } = require 'atom'
+
 module.exports =
+  config:
+    visibility:
+      type: 'string',
+      default: 'showButtonsOnMarkdown',
+      description: 'Configure toolbar visibility behaviour',
+      enum: [
+        'showToolbarOnMarkdown'
+        'showButtonsOnMarkdown'
+        'showButtonsOnAll'
+      ]
+    grammars:
+      type: 'array',
+      default: [
+        'source.gfm'
+        'source.gfm.nvatom'
+        'source.litcoffee'
+        'text.md'
+        'text.plain'
+        'text.plain.null-grammar'
+      ],
+      description: 'Valid file type grammars',
+
   buttons: [
     {
       'icon': 'file',
@@ -96,11 +120,14 @@ module.exports =
 
   consumeToolBar: (toolBar) ->
     @toolBar = toolBar('tool-bar-markdown-writer')
-
     # cleaning up when tool bar is deactivated
     @toolBar.onDidDestroy => @toolBar = null
+    # display buttons
+    @addButtons()
 
-    # add buttons/spacers
+  addButtons: ->
+    return unless @toolBar?
+
     @buttons.forEach (button) =>
       if button['type'] == 'separator'
         @toolBar.addSpacer()
@@ -111,5 +138,36 @@ module.exports =
           tooltip: button['label'],
           iconset: 'mdi')
 
+  removeButtons: -> @toolBar?.removeItems()
+
+  updateToolbarVisible: (visible) ->
+    atom.config.set('tool-bar.visible', visible)
+
+  isToolbarVisible: -> atom.config.get('tool-bar.visible')
+
+  activate: ->
+    @subscriptions = new CompositeDisposable()
+    @subscriptions.add atom.workspace.onDidStopChangingActivePaneItem (item) =>
+      visibility = atom.config.get('tool-bar-markdown-writer.visibility')
+
+      if @isMarkdown()
+        @removeButtons()
+        @addButtons()
+        @updateToolbarVisible(true) if visibility == 'showToolbarOnMarkdown'
+      else if @isToolbarVisible()
+        if visibility == 'showButtonsOnMarkdown'
+          @removeButtons()
+        else if visibility == 'showToolbarOnMarkdown'
+          @updateToolbarVisible(false)
+
+  isMarkdown: ->
+    editor = atom.workspace.getActiveTextEditor()
+    return false unless editor?
+
+    grammars = atom.config.get('tool-bar-markdown-writer.grammars')
+    return grammars.indexOf(editor.getGrammar().scopeName) >= 0
+
   deactivate: ->
+    @subscriptions.dispose()
+    @subscriptions = null
     @toolBar?.removeItems()

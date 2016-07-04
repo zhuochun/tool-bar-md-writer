@@ -6,6 +6,7 @@
   "keywords": [
     "tool-bar",
     "markdown",
+    "markdown-writer",
     "writing"
   ],
   "repository": "https://github.com/zhuochun/tool-bar-md-writer",
@@ -16,7 +17,8 @@
   "dependencies": {},
   "packageDependencies": {
     "tool-bar": "^0.4.0",
-    "markdown-writer": "^1.0.0"
+    "markdown-writer": "^1.0.0",
+    "markdown-preview": "^0.109.0"
   },
   "consumedServices": {
     "tool-bar": {
