@@ -1,7 +1,7 @@
 # Toolbar for Markdown-Writer
 
-[![Apm Version](https://img.shields.io/apm/v/tool-bar-markdown-writer.svg)](https://atom.io/packages/markdown-writer)
-[![Apm Downloads](https://img.shields.io/apm/dm/tool-bar-markdown-writer.svg)](https://atom.io/packages/markdown-writer)
+[![Apm Version](https://img.shields.io/apm/v/tool-bar-markdown-writer.svg)](https://atom.io/packages/tool-bar-markdown-writer)
+[![Apm Downloads](https://img.shields.io/apm/dm/tool-bar-markdown-writer.svg)](https://atom.io/packages/tool-bar-markdown-writer)
 
 A tool-bar plugin that adds Markdown editing buttons.
 
