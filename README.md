@@ -11,17 +11,17 @@ Powered with [Markdown Writer](https://atom.io/packages/markdown-writer) and [At
 
 ## Installation
 
-You have to install `tool-bar` and `markdown-writer` packages:
-
 ```
-apm install tool-bar markdown-writer
+apm install tool-bar markdown-writer tool-bar-markdown-writer
 ```
 
-Then install this package:
+## Tricks
 
-```
-apm install tool-bar-markdown-writer
-```
+- `shift` + **New Post**: Add New Draft
+- `shift` + **Insert Link**: Open Link in Browser
+- `shift` + **Code**: Insert Code Block
+- `shift` + **Ordered List**: Format Ordered List Numbers
+- `shift` + **Task List**: Toggle Task Done/Undone
 
 ## Configuration
 
