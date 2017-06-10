@@ -14,11 +14,12 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {},
-  "packageDependencies": {
-    "tool-bar": "^0.4.0",
-    "markdown-writer": "^1.0.0",
-    "markdown-preview": "^0.109.0"
+  "package-deps": [
+    "tool-bar",
+    "markdown-writer"
+  ],
+  "dependencies": {
+    "atom-package-deps": "^4.3.1"
   },
   "consumedServices": {
     "tool-bar": {

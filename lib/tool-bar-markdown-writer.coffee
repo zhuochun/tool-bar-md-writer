@@ -146,6 +146,11 @@ module.exports =
   isToolbarVisible: -> atom.config.get('tool-bar.visible')
 
   activate: ->
+    require('atom-package-deps')
+      .install('tool-bar', 'markdown-writer')
+      .then(=> @activateBar())
+
+  activateBar: ->
     @subscriptions = new CompositeDisposable()
     @subscriptions.add atom.workspace.onDidStopChangingActivePaneItem (item) =>
       visibility = atom.config.get('tool-bar-markdown-writer.visibility')
