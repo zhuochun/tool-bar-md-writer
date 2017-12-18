@@ -182,7 +182,7 @@ module.exports =
 
   activate: ->
     require('atom-package-deps')
-      .install('tool-bar', 'markdown-writer')
+      .install('tool-bar-markdown-writer', true)
       .then(=> @activateBar())
 
   activateBar: ->
