@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Fix `package-deps` usage
+
 ## 0.3.0
 
 - Add `package-deps` to ensure dependent packages installed
