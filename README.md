@@ -31,5 +31,7 @@ apm install tool-bar markdown-writer tool-bar-markdown-writer
   - `showButtonsOnAll`: always show toolbar and Markdown buttons
 - **Grammars**:
   - An array of file types to be treated as Markdown files.
+- **Critic Markup**:
+  - A boolean to show or not CriticMarkup buttons.
 
 Happy writing!
