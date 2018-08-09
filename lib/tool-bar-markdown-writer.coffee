@@ -22,6 +22,10 @@ module.exports =
         'text.plain.null-grammar'
       ]
       description: 'Valid file type grammars'
+    critic_markup:
+      type: 'boolean',
+      default: false,
+      description: 'Configure Critic Markup toolbar buttons visibility behaviour'
 
   buttons: [
     {
@@ -139,26 +143,74 @@ module.exports =
       'tooltip': 'Format Table'
       'callback': 'markdown-writer:format-table'
     }
+    { 
+      'type': 'separator'
+      'option': 'criticmarkup'
+    }
+    {
+      'icon': 'addition'
+      'tooltip': 'CriticMarkup Addition'
+      'callback': 'markdown-writer:toggle-addition-text'
+      'option': 'criticmarkup'
+      'iconset': 'criticmarkup'
+    }
+    {
+      'icon': 'deletion'
+      'tooltip': 'CriticMarkup Deletion'
+      'callback': 'markdown-writer:toggle-deletion-text'
+      'option': 'criticmarkup'
+      'iconset': 'criticmarkup'
+    }
+    {
+      'icon': 'substitution'
+      'tooltip': 'CriticMarkup Substitution'
+      'callback': 'markdown-writer:toggle-substitution-text'
+      'option': 'criticmarkup'
+      'iconset': 'criticmarkup'
+    }
+    {
+      'icon': 'comment'
+      'tooltip': 'CriticMarkup Comment'
+      'callback': 'markdown-writer:toggle-comment-text'
+      'option': 'criticmarkup'
+      'iconset': 'criticmarkup'
+    }
+    {
+      'icon': 'highlight'
+      'tooltip': 'CriticMarkup Highlight'
+      'callback': 'markdown-writer:toggle-highlight-text'
+      'option': 'criticmarkup'
+      'iconset': 'criticmarkup'
+    }
   ]
-
+  
   consumeToolBar: (toolBar) ->
     @toolBar = toolBar('tool-bar-markdown-writer')
     # cleaning up when tool bar is deactivated
     @toolBar.onDidDestroy => @toolBar = null
     # display buttons
     @addButtons()
+    
+  isCriticMarkupEnabled: -> 
+    return atom.config.get('tool-bar-markdown-writer.critic_markup')
+    
+  showOptionalCriticMarkupButton: (button) ->
+    return button['option'] == 'criticmarkup' and not @isCriticMarkupEnabled()
 
   addButtons: ->
     return unless @toolBar?
 
     for button in @buttons
+      if @showOptionalCriticMarkupButton(button)
+        continue
+      
       if button['type'] == 'separator'
         @toolBar.addSpacer()
       else
         callback = button['callback']
         callback = button['visible'](button['data']) if button['visible']?
         continue unless callback
-
+        
         @toolBar.addButton(
           icon: button['icon']
           data: button['data']
