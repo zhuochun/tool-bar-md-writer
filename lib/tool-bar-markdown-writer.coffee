@@ -194,14 +194,14 @@ module.exports =
   isCriticMarkupEnabled: -> 
     return atom.config.get('tool-bar-markdown-writer.critic_markup')
     
-  showOptionalCriticMarkupButton: (button) ->
+  hideOptionalCriticMarkupButton: (button) ->
     return button['option'] == 'criticmarkup' and not @isCriticMarkupEnabled()
 
   addButtons: ->
     return unless @toolBar?
 
     for button in @buttons
-      if @showOptionalCriticMarkupButton(button)
+      if @hideOptionalCriticMarkupButton(button)
         continue
       
       if button['type'] == 'separator'
