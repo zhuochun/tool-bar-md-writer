@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Critic Markup";
+  src: url('atom://tool-bar-markdown-writer/iconsets/criticmarkup/criticmarkup.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.criticmarkup:before,
+.criticmarkup-set {
+  display: inline-block;
+  font: normal normal normal 24px/1 "Critic Markup";
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.criticmarkup-highlight:before {
+  content: "\e900";
+}
+.criticmarkup-comment:before {
+  content: "\e901";
+}
+.criticmarkup-substitution:before {
+  content: "\e902";
+}
+.criticmarkup-deletion:before {
+  content: "\e903";
+}
+.criticmarkup-addition:before {
+  content: "\e904";
+}
