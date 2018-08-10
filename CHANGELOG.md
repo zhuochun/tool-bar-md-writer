@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Add `CriticMarkup` Buttons ([#14](https://github.com/zhuochun/tool-bar-md-writer/pull/14))
+
 ## 0.3.1
 
 - Fix `package-deps` usage
