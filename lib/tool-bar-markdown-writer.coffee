@@ -143,7 +143,7 @@ module.exports =
       'tooltip': 'Format Table'
       'callback': 'markdown-writer:format-table'
     }
-    { 
+    {
       'type': 'separator'
       'option': 'criticmarkup'
     }
@@ -183,17 +183,17 @@ module.exports =
       'iconset': 'criticmarkup'
     }
   ]
-  
+
   consumeToolBar: (toolBar) ->
     @toolBar = toolBar('tool-bar-markdown-writer')
     # cleaning up when tool bar is deactivated
     @toolBar.onDidDestroy => @toolBar = null
     # display buttons
     @addButtons()
-    
-  isCriticMarkupEnabled: -> 
+
+  isCriticMarkupEnabled: ->
     return atom.config.get('tool-bar-markdown-writer.critic_markup')
-    
+
   hideOptionalCriticMarkupButton: (button) ->
     return button['option'] == 'criticmarkup' and not @isCriticMarkupEnabled()
 
@@ -203,14 +203,14 @@ module.exports =
     for button in @buttons
       if @hideOptionalCriticMarkupButton(button)
         continue
-      
+
       if button['type'] == 'separator'
         @toolBar.addSpacer()
       else
         callback = button['callback']
         callback = button['visible'](button['data']) if button['visible']?
         continue unless callback
-        
+
         @toolBar.addButton(
           icon: button['icon']
           data: button['data']
