@@ -1,7 +1,7 @@
 {
   "name": "tool-bar-markdown-writer",
   "main": "./lib/tool-bar-markdown-writer",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "A tool-bar plugin that adds Markdown editing actions",
   "keywords": [
     "tool-bar",
