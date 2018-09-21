@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Support `markdown-preview-enhanced` ([#15](https://github.com/zhuochun/tool-bar-md-writer/pull/15))
+
 ## 0.4.0
 
 - Add `CriticMarkup` Buttons ([#14](https://github.com/zhuochun/tool-bar-md-writer/pull/14))
