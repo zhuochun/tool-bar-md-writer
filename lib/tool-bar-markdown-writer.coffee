@@ -38,7 +38,7 @@ module.exports =
     {
       'icon': 'markdown'
       'tooltip': 'Preview Markdown'
-      'data': ['markdown-preview', 'markdown-preview-plus']
+      'data': ['markdown-preview', 'markdown-preview-plus', 'markdown-preview-enhanced']
       'visible': (data) ->
         pkg = data.find (pkg) -> !!atom.packages.getLoadedPackage(pkg)
         "#{pkg}:toggle" if pkg
