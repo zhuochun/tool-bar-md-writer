@@ -92,7 +92,7 @@ module.exports =
       'callback': 'markdown-writer:toggle-ul'
     }
     {
-      'icon': 'format-list-numbers'
+      'icon': 'format-list-numbered'
       'tooltip': 'Ordered List'
       'callback':
         '': 'markdown-writer:toggle-ol'
