@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Fix missing icon for OL ([#16](https://github.com/zhuochun/tool-bar-md-writer/issues/16))
+
 ## 0.5.0
 
 - Support `markdown-preview-enhanced` ([#15](https://github.com/zhuochun/tool-bar-md-writer/pull/15))
